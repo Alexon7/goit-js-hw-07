@@ -45,16 +45,16 @@ function onOpenBigImg(evt) {
 `,
     {
       onShow: instance => {
-        window.addEventListener('keydown', onEscKeyPress);
+        window.addEventListener('keydown', closeModal);
       },
     }
   );
 
   instance.show();
 
-  function onEscKeyPress(evt) {
+  function closeModal(evt) {
     if (evt.code === 'Escape') {
-      window.removeEventListener('keydown', onEscKeyPress);
+      window.removeEventListener('keydown', closeModal);
       instance.close();
     }
   }
