@@ -1,30 +1,36 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
+// const galleryContainer = document.querySelector('.gallery');
+
+
+// galleryContainer.insertAdjacentHTML('beforeend', createGallery(galleryItems));
+
+
+// function createGallery(galleryItems) {
+//     return galleryItems.map(({preview, original, description })=> {
+//         return `<a class="gallery__item" href="${original}">
+//   <img class="gallery__image" src="${preview}" alt="${description}" />
+// </a>`;
+//     }).join('');
+    
+// }
+
 const galleryContainer = document.querySelector('.gallery');
 
 
-galleryContainer.insertAdjacentHTML('beforeend', createGallery(galleryItems));
-
-
-function createGallery(galleryItems) {
-    return galleryItems.map(({preview, original, description })=> {
-        return `<a class="gallery__item" href="${original}">
+  const createGalleryEl = galleryItems
+    .map(({ preview, original, description }) => {
+      return `
+        <a class="gallery__item" href="${original}">
   <img class="gallery__image" src="${preview}" alt="${description}" />
-</a>`;
-    }).join('');
+</a>
+`;
+    })
+    .join('');
     
-}
+  galleryContainer.insertAdjacentHTML('beforeend', createGalleryEl);
 
-// const galleryContainer = document.querySelector('.gallery');
-// function createGallery(galleryItems) {
-//     const createGalleryEl = galleryItems.map(({ preview, original, description }) => {
-//         return `<a class="gallery__item" href="${original}">
-//   <img class="gallery__image" src="${preview}" alt="${description}" />
-// </a>`}).join('');
-    
-//     galleryContainer.insertAdjacentHTML('beforeend', createGalleryEl);
 
-// }
  
  new SimpleLightbox('.gallery a', {
   captionsData: 'alt',
